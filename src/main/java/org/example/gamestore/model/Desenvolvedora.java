@@ -1,11 +1,11 @@
 package org.example.gamestore.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,4 +18,9 @@ public class Desenvolvedora {
     private String nome;
     private String pais;
     private Integer anoFundacao;
+
+    @OneToMany(mappedBy = "desenvolvedora")
+    private List<Jogo> jogos =new ArrayList<>();
+
+    public Desenvolvedora(){}
 }
