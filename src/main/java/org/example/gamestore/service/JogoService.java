@@ -34,6 +34,10 @@ public class JogoService {
                 .toList();
     }
 
+    public Jogo buscarEntidade(Long id){
+        return jogoRepository.findById(id).orElseThrow(() -> new RecursoNaoEncontradoException("Jogo não encontrado"));
+    }
+
     private Jogo toEntity(JogoRequestDTO dto){
         Desenvolvedora desenvolvedora = desenvolvedoraService.buscarEntidade(dto.id());
         Jogo jogo = new Jogo();

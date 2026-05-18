@@ -68,8 +68,7 @@ public class DesenvolvedoraService {
     }
 
     public Desenvolvedora buscarEntidade(Long id){
-        Desenvolvedora desenvolvedora = repository.findById(id).orElseThrow(() -> new RecursoNaoEncontradoException("Desenvolvedora não encontrada"));
-        return desenvolvedora;
+        return repository.findById(id).orElseThrow(() -> new RecursoNaoEncontradoException("Desenvolvedora não encontrada"));
     }
 
 

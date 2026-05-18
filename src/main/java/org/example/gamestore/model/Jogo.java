@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -21,4 +24,7 @@ public class Jogo {
     @ManyToOne
     @JoinColumn(name = "idDesenvolvedora")
     private Desenvolvedora desenvolvedora;
+
+    @OneToMany(mappedBy = "jogo")
+    private List<AvaliacaoJogo> avaliacoes = new ArrayList<>();
 }
